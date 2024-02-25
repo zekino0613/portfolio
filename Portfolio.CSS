@@ -680,22 +680,7 @@ li {
 
   /* --footer---------------------------- */
 
-  .fixed-bg {
-    height: 400px;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  #footer .footer-img {
-    background-image: url("portfolio_img/コンタクト.png");
-    box-shadow: 20px 12px 51px 19px #222121;
-    position: relative;
-    z-index: 200;
-  }
-  
   #footer .footer-title {
-    color: #f6f5f5;
     width: 100%;
     text-align: center;
     font-size: 2.5rem;
@@ -707,12 +692,6 @@ li {
   }
   
   #footer .footer-list {
-    background-image: url("portfolio_img/wood.jpg");
-    background-position: center;
-    background-repeat: repeat-y;
-    background-size: 100%;
-    position: relative;
-    z-index: 150;
     width: 100%;
     height: 600px;
     /* border: rgb(83, 134, 7) 1px solid; */
