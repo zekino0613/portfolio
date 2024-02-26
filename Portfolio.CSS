@@ -8,7 +8,7 @@ html {
 body {
   font-size: 100%;
   width: 100%;
-
+  font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
 }
 
 a {
@@ -49,7 +49,7 @@ li {
 }
 
 #header .nav {
-  width: 700px;
+  width: 800px;
   height: 100%;
 }
 
@@ -57,16 +57,20 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.7rem;
-  font-weight: 700;
   text-shadow: 3px 7px 2px #2a2a2a;
   margin-right: 20px;
   /* border: rgb(8, 241, 4) 1px solid; */
 }
 
+#header li {
+  font-size: 2rem;
+  font-weight: 700;
+
+}
+
 #header .logo img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   box-shadow: 3px 7px 10px #2a2a2a;
   border-radius: 50%;
 }
@@ -250,7 +254,7 @@ li {
 .section-title {
   display: flex;
   justify-content: center;
-  padding-top: 86px;
+  padding-top: 94px;
   position: sticky;
   z-index: 999;
   top: 0;
@@ -369,31 +373,38 @@ li {
   margin: 0 auto;
 }
 
-.fixed-bg {
-  height: 300px;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+.footer-img {
+  height: 250px;
 }
 
-#footer .footer-img {
+.footer-img::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
   background-image: url("portfolio_img2/コンタクト1.jpg");
-  box-shadow: 20px 12px 51px 19px #222121;
-  position: relative;
-  z-index: 200;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 #footer .footer-title {
   color: #f6f5f5;
   width: 100%;
   text-align: center;
   font-size: 4.5rem;
+  margin-top: 100px;
   text-shadow: 3px 7px 2px #2a2a2a;
   filter: drop-shadow(2px 2px 5px #444444);
   -webkit-text-stroke: 1px black;
-  position: absolute;
-  top: 30%;
+  z-index: 2;
 }
+
 
 #footer .footer-list {
   background-image: url("portfolio_img2/wood1.jpg");
@@ -404,9 +415,12 @@ li {
   z-index: 150;
   width: 100%;
   height: 600px;
-  /* border: rgb(83, 134, 7) 1px solid; */
 }
 
+#footer .footer-list span {
+  font-size: 4vw;
+  font-weight: bold;
+}
 
 #footer .contact-form {
   width: 80%;
@@ -416,8 +430,36 @@ li {
   text-shadow: 3px 7px 2px #050505;
   -webkit-text-stroke: 1px black;
   margin: 0 auto;
-  padding: 200px 0 0 120px;
-  /* border: rgb(71, 200, 255) 1px solid; */
+  padding: 100px 0 0 120px;
+}
+
+#footer .contact-form a {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  transition: 0.4s;
+}
+
+#footer .contact-form a::before {
+  content: "";
+  width: 100%;
+  height: 18px;
+  position: absolute;
+  top: 109%;
+  left: 0%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0) 80%);
+  z-index: 700;
+  opacity: 0;
+  transition: 1s;
+}
+
+#footer .contact-form a:hover {
+  transform: translateY(-8px);
+}
+
+#footer .contact-form a:hover::before {
+  transform: translateY(8px);
+  opacity: 1;
 }
 
 
@@ -426,8 +468,7 @@ li {
   width: 80%;
   height: 40%;
   display: flex;
-  margin: 100px auto 0 auto;
-  /* border: violet 1px solid; */
+  margin: 150px auto 0 auto;
 }
 
 
@@ -441,7 +482,6 @@ li {
   height: auto;
   transition: 0.5s;
   bottom: 0;
-  /* border: wheat 1px solid; */
 }
 
 #footer .footer-neko:hover {
@@ -464,7 +504,6 @@ li {
   position: relative;
   align-items: end;
   margin-left: 60px;
-  /* border: rgb(9, 47, 239) 1px solid; */
 }
 
 
@@ -508,9 +547,9 @@ li {
 #footer .footer-icon .sakana {
   background: url("portfolio_img2/さかな.png");
   background-size: 100%;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   width: 30%;
-  height: 35%;  
+  height: 35%;
   bottom: 0;
   right: 30px;
   position: absolute;
@@ -526,7 +565,7 @@ li {
   background-position: center;
   background-repeat: no-repeat;
   width: 30%;
-  height: 35%;  
+  height: 35%;
   bottom: 0;
   right: 30px;
   border-radius: 20%;
@@ -550,6 +589,7 @@ li {
 
 @media screen and (max-width: 768px) {
 
+
   #header .inner {
     width: 100%;
   }
@@ -565,13 +605,25 @@ li {
   }
 
   #header li {
-    font-size: 3vw;
+    font-size: 3.2vw;
     margin-right: 20px;
   }
 
+  #header a:hover,
+  #header a:active {
+    transform: translateY(-8px);
+  }
+
+  #header a:hover::before,
+  #header a:active::before {
+    transform: translateY(8px);
+    opacity: 1;
+
+  }
+
   #header .logo img {
-    width: 10vw;
-    height: 10vw;
+    width: 14vw;
+    height: 14vw;
     margin: 10%;
   }
 
@@ -590,17 +642,18 @@ li {
 
 
   #mainvisual .pc-neko {
-    background-size: 130%;
-    width: 30vw;
-    height: 30vw;
-    bottom: 40px;
+    background-size: 100%;
+    width: 50vw;
+    height: 50vw;
+    bottom: -80px;
   }
 
-  #mainvisual .pc-neko:hover {
-    background-size: 140%;
-    width: 30vw;
-    height: 30vw;
-    bottom: 40px;
+  #mainvisual .pc-neko:hover,
+  #mainvisual .pc-neko:active {
+    background-size: 100%;
+    width: 50vw;
+    height: 50vw;
+    bottom: -80px;
   }
 
   .section-title {
@@ -626,14 +679,14 @@ li {
     width: 90%;
     flex-direction: column;
     margin-top: 200px;
-    margin-right: 5%;
-    transform: rotate(-3deg);
+    margin-right: 0;
+    transform: rotate(-5deg);
   }
 
   /* --.betweenの最後だけ角度を変える。---------- */
   .last-between {
     transform: rotate(-3deg);
-    margin-top: 20%;
+    margin-top: 49%;
   }
 
   .row-reve {
@@ -662,16 +715,16 @@ li {
   }
 
   .HTML_CSS-galle {
-    height: 875vw;
+    height: 975vw;
   }
 
   .HTML_CSS-wood_white {
-    height: 820vw;
+    height: 920vw;
     top: 5%;
   }
 
   .HTML_CSS-colk {
-    height: 816vw;
+    height: 915vw;
     top: 0.3%;
     bottom: 0.3%;
     left: 2%;
@@ -679,89 +732,118 @@ li {
   }
 
   /* --footer---------------------------- */
+  #footer .contact-form {
+    width: 100%;
+    height: 40%;
+    font-size: 5vw;
+    margin: 0 auto;
+    padding: 100px 0 0 0;
+  }
+
+  #footer .contact-form a:hover,
+  #footer .contact-form a:active {
+    transform: translateY(-8px);
+  }
+
+  #footer .contact-form a:hover::before,
+  #footer .contact-form a:active::before {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+
+
+  #footer .footer-inner {
+    width: 100%;
+    height: 18rem;
+    display: flex;
+    margin: 0px auto 0 auto;
+    /* border: violet 1px solid; */
+
+  }
 
   #footer .footer-title {
     width: 100%;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 10vw;
     text-shadow: 3px 7px 2px #2a2a2a;
     filter: drop-shadow(2px 2px 5px #444444);
     -webkit-text-stroke: 1px black;
-    position: absolute;
-    top: 40%;
   }
-  
+
   #footer .footer-list {
     width: 100%;
-    height: 600px;
-    /* border: rgb(83, 134, 7) 1px solid; */
+    height: 700px;
   }
-  
-  
-  #footer .contact-form {
-    font-size: 3vw;
-    padding: 200px 0 0 0px;
+
+  #footer .footer-list span {
+    font-size: 10vw;
+    font-weight: bold;
   }
-  
-  
+
+
   #footer .footer-neko {
-    background-size: 160%;
-    width: 40%;
-    height: 80%;
+    background-size: 150%;
+    width: 60vw;
+    height: 90%;
     bottom: 0vw;
-    margin-top: 50px;
+    margin-top: 100px;
   }
-  
-  #footer .footer-neko:hover {
-    background-size: 140%;
-    width: 40%;
-    height: auto;
-    bottom: 0;
+
+  #footer .footer-neko:hover,
+  #footer .footer-neko:active {
+    background-size: 150%;
+    width: 60vw;
+    height: 90%;
+    bottom: 0vw;
+    margin-top: 100px;
+
   }
-  
+
   #footer .footer-icon {
-    width: 60%;
+    width: 50%;
     height: 60%;
-    margin-left: 60px;
     margin-top: 90px;
   }
-  
-  
+
+
   #footer .twitter {
     width: 11vw;
     height: 11vw;
     margin-left: 0;
   }
-  
+
   #footer .footer-icon .insta {
-    width: 30vw;
-    height: 30vw;
-    mask-size: 60%;
-    bottom: -5vw;
-    left: 10vw;
-    }
-  
-  
+    width: 20vw;
+    height: 20vw;
+    mask-size: 85%;
+    bottom: 5vw;
+    left: 5vw;
+  }
+
+
   #footer .footer-icon .sakana {
     width: 12vw;
-    height: 12vw; 
+    height: 12vw;
     bottom: 0;
-    right: 0;
+    right: 8vw;
+
   }
-  
-  #footer .footer-icon .sakana:hover {
+
+  #footer .footer-icon .sakana:hover,
+  #footer .footer-icon .sakana:active {
     width: 12vw;
-    height: 12vw; 
+    height: 12vw;
     bottom: 0;
-    right: 0;
+    right: 8vw;
+    /* border: rgb(83, 134, 7) 1px solid; */
   }
-  
-  
+
+
   #footer .footer-list p {
-    font-size: 2.5vw;
-    bottom: 4px;
-    left: 39vw;
+    font-size: 4vw;
+    bottom: 30px;
+    left: 30vw;
   }
-  
+
 
 }
